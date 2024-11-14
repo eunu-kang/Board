@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<h1>Rest 연습</h1>
+
+<button class="a">a</button>
+<button class="b">b</button>
+<button class="c">c</button>
+<button class="d">d</button>
+<button class="e">e</button>
+
+
+<div class="result"></div>
+
+<script>
+
+    $(".e").on("click", function () {
+
+        console.log("e")
+        $.ajax({
+            url : "/review/e",
+            data : {"title" : "리뷰 제목", "content" : "오늘의 영화 리뷰", "writer" : "홍길동"},
+            type : "post",
+            success : function (result) {
+                console.log(result)
+                $(".result").append(result)
+            },
+            error : function (error) {
+                console.log(error)
+                console.log(error.responseText)
+            }
+        })
+
+    })
+
+
+    $(".d").on("click", function () {
+
+        console.log("d")
+        $.ajax({
+            url : "/review/d",
+            data : {"title" : "리뷰 제목", "content" : "오늘의 영화 리뷰", "writer" : "홍길동"},
+            type : "get",
+            success : function (result) {
+                console.log(result)
+                $(".result").append(result)
+            },
+            error : function (error) {
+                console.log(error)
+                console.log(error.responseText)
+            }
+        })
+
+    })
+
+    $(".c").on("click", function () {
+
+        console.log("c")
+        $.ajax({
+            url : "/review/c",
+            data : {"name" : "홍길동"},
+            type : "put",
+            success : function (result) {
+                console.log(result)
+                $(".result").append(result)
+            },
+            error : function (error) {
+                console.log(error)
+                console.log(error.responseText)
+            }
+        })
+
+    })
+
+    $(".b").on("click", function () {
+
+        console.log("b")
+        $.ajax({
+            url : "/review/b",
+            data : {"name" : "홍길동"},
+            type : "post",
+            success : function (result) {
+                console.log(result)
+                $(".result").append(result)
+            },
+            error : function (error) {
+                console.log(error)
+                console.log(error.responseText)
+            }
+        })
+
+    })
+
+    $(".a").on("click", function () {
+
+        console.log("a")
+        $.ajax({
+            url : "/review/a",
+            data : {"a" : "신짱구"},
+            type : "get",
+            success : function (result) {
+                console.log(result)
+                $(".result").append(result)
+            },
+            error : function (error) {
+                console.log(error)
+                console.log(error.responseText)
+            }
+        })
+
+    })
+
+
+</script>
+
+
+</body>
+</html>
